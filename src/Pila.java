@@ -78,16 +78,5 @@ public class Pila {
         }
         System.out.println("FIN");
     }
-    public void mostrarInverso(Pila pila){
-        if(!pila.vacia()){
-            int elemento=pila.desapilar();
-            mostrarInverso(pila);
-            System.out.println(elemento + " ");
-            pila.apilar(elemento);
-        }
-    }
-    public boolean comprobarTexto (ListaEtiquetas lista, String texto){
-
-    }
 
 }

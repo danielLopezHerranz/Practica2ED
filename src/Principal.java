@@ -13,6 +13,7 @@ public class Principal {//Esta clase se daría completa, tal y como está
         Scanner teclado= new Scanner(System.in);
         Pruebas prueba = new Pruebas();
         //prueba.probarOpciones ();
+        UtilizacionPila pruebasPilas=new UtilizacionPila();
         Pila pilaPruebas = new Pila();
         pilaPruebas.apilar(1);
         pilaPruebas.apilar(2);
@@ -23,7 +24,7 @@ public class Principal {//Esta clase se daría completa, tal y como está
         int elección=teclado.nextInt();
         switch (elección){
             case 1:
-                pilaPruebas.mostrarInverso(pilaPruebas);
+                pruebasPilas.mostrarInverso(pilaPruebas);
         }
     }
 }
