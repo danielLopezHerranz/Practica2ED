@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Clase Principal, desde la que se llama a la clase Pruebas
  *
@@ -8,16 +10,20 @@
  */
 public class Principal {//Esta clase se daría completa, tal y como está
     public static void main (String [] args) {
-        
+        Scanner teclado= new Scanner(System.in);
         Pruebas prueba = new Pruebas();
-        prueba.probarOpciones ();
+        //prueba.probarOpciones ();
         Pila pilaPruebas = new Pila();
         pilaPruebas.apilar(1);
         pilaPruebas.apilar(2);
         pilaPruebas.apilar(3);
         pilaPruebas.apilar(4);
         pilaPruebas.apilar(5);
-        System.out.print("1.MostrarInverso.\tElija una opción: ");
-        int elección=
+        System.out.print("1.MostrarInverso.\nElija una opción: ");
+        int elección=teclado.nextInt();
+        switch (elección){
+            case 1:
+                pilaPruebas.mostrarInverso(pilaPruebas);
+        }
     }
 }
