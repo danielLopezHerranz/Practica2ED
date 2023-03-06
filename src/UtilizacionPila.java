@@ -24,13 +24,14 @@ public class UtilizacionPila {
      * Método que muestra el contenido de la pila invertido (el fondo arriba y la cima abajo)
      * @param pila la pila que deseamos mostrar
      */
-    public void mostrarInverso(Pila pila) {
+    public void mostrarInverso(Pila pila){
         if(!pila.vacia()){
             int elemento=pila.desapilar();
             mostrarInverso(pila);
             System.out.println(elemento + " ");
             pila.apilar(elemento);
         }
-     }
+    }
+
 }
 

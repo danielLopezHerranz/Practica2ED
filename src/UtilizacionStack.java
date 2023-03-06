@@ -23,11 +23,24 @@ public class UtilizacionStack {
      * @param pila la pila que deseamos mostrar
      */
     public void mostrar (Stack <String> pila)  {
+        String elemento="";
+        if(!pila.empty()){
+            elemento=pila.pop();
+            mostrar(pila);
+            System.out.println(elemento);
+        }else{
+            System.out.println("Contenido de la pila:");
+
+        }
     }
     /**
      * Método que muestra el contenido de la pila invertido (el fondo arriba y la cima abajo)
      * @param pila la pila que deseamos mostrar
      */
     public void mostrarInverso (Stack <String> pila) {
+        String elemento;
+        if(!pila.empty()){
+
+        }
     }
 }
