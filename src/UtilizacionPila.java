@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 /**
  * Clase UtilizacionPila, para desarrollar los ejercicios propuestos en el
  * apartado 2
@@ -17,7 +19,38 @@ public class UtilizacionPila {
      * @return verdadero si las etiquetas están balanceadas, falso en caso contrario
      */
     public boolean comprobarTexto (ListaEtiquetas lista, String texto) {
-        return false;
+        boolean resultado=true, fin=false;
+        Stack<String>etiquetasApertura=new Stack<>();
+        int i =0,j=0;
+        String[]etiquetas=texto.split(" ");
+        UtilizacionStack utilizacionStack=new UtilizacionStack();
+        do{
+            j++;
+            System.out.println(etiquetas[j]);
+            System.out.println(j);
+        }while(etiquetas[j].length()>0);
+        do {
+            i++;
+            if(lista.esEtiqueta(etiquetas[i])){
+                if (lista.esApertura(etiquetas[i])){
+                    etiquetasApertura.push(etiquetas[i]);
+                }else{
+                    String elemento=etiquetasApertura.pop();
+                    System.out.println(etiquetas[i].replace("/",""));
+                    System.out.println(elemento);
+                    if (etiquetas[i].replace("/","").compareTo(elemento)!=0){
+                        resultado=false;
+                    }
+                    System.out.println(resultado);
+                }
+            }
+        }while (i!=j);
+        if(!etiquetasApertura.empty()){
+            System.out.println("En la pila quedan elementos:");
+            utilizacionStack.mostrarInverso(etiquetasApertura);
+            resultado=false;
+        }
+        return  resultado;
     }
 
     /**

@@ -13,8 +13,8 @@ public class Principal {//Esta clase se daría completa, tal y como está
     public static void main (String [] args) {
         Scanner teclado= new Scanner(System.in);
         Pruebas prueba = new Pruebas();
-        //prueba.probarOpciones ();
-        UtilizacionPila pruebasPilas=new UtilizacionPila();
+        prueba.pruebasPila ();
+        /*UtilizacionPila pruebasPilas=new UtilizacionPila();
         Pila pilaPruebas = new Pila();
         pilaPruebas.apilar(1);
         pilaPruebas.apilar(2);
@@ -42,6 +42,6 @@ public class Principal {//Esta clase se daría completa, tal y como está
                 utilizacionStackPruebas.mostrarInverso(stackPruebas);
                 utilizacionStackPruebas.mostrar(stackPruebas);
                 break;
-        }
+        }*/
     }
 }
