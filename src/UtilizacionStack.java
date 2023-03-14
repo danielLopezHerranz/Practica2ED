@@ -26,11 +26,11 @@ public class UtilizacionStack {
         String elemento="";
         if(!pila.empty()){
             elemento=pila.pop();
-            mostrar(pila);
             System.out.println(elemento);
+            mostrar(pila);
+            pila.push(elemento);
         }else{
             System.out.println("Contenido de la pila:");
-
         }
     }
     /**
@@ -40,7 +40,10 @@ public class UtilizacionStack {
     public void mostrarInverso (Stack <String> pila) {
         String elemento;
         if(!pila.empty()){
-
+            elemento=pila.pop();
+            mostrarInverso(pila);
+            System.out.println(elemento+" ");
+            pila.push(elemento);
         }
     }
 }

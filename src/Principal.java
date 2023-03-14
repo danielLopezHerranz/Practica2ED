@@ -34,7 +34,12 @@ public class Principal {//Esta clase se daría completa, tal y como está
             case 1:
                 pruebasPilas.mostrarInverso(pilaPruebas);
                 break;
+            case 2:
+                utilizacionStackPruebas.mostrar(stackPruebas);
+                utilizacionStackPruebas.mostrar(stackPruebas);
+                break;
             case 3:
+                utilizacionStackPruebas.mostrarInverso(stackPruebas);
                 utilizacionStackPruebas.mostrar(stackPruebas);
                 break;
         }
