@@ -1,3 +1,4 @@
+import java.util.Scanner;
 import java.util.Stack;
 
 /**
@@ -19,37 +20,38 @@ public class UtilizacionPila {
      * @return verdadero si las etiquetas están balanceadas, falso en caso contrario
      */
     public boolean comprobarTexto (ListaEtiquetas lista, String texto) {
-        boolean resultado=true, fin=false;
-        Stack<String>etiquetasApertura=new Stack<>();
-        int i =0,j=0;
+        boolean resultado=true;
+        Pila etiquetasApertura=new Pila();
+        int i =0;
         String[]etiquetas=texto.split(" ");
-        UtilizacionStack utilizacionStack=new UtilizacionStack();
-        do{
-            j++;
-            System.out.println(etiquetas[j]);
-            System.out.println(j);
-        }while(etiquetas[j].length()>0);
-        do {
-            i++;
-            if(lista.esEtiqueta(etiquetas[i])){
-                if (lista.esApertura(etiquetas[i])){
-                    etiquetasApertura.push(etiquetas[i]);
-                }else{
-                    String elemento=etiquetasApertura.pop();
-                    System.out.println(etiquetas[i].replace("/",""));
-                    System.out.println(elemento);
-                    if (etiquetas[i].replace("/","").compareTo(elemento)!=0){
-                        resultado=false;
-                    }
-                    System.out.println(resultado);
-                }
-            }
-        }while (i!=j);
-        if(!etiquetasApertura.empty()){
-            System.out.println("En la pila quedan elementos:");
-            utilizacionStack.mostrarInverso(etiquetasApertura);
+        UtilizacionPila utilizacionPila=new UtilizacionPila();
+        if (texto.length()==0){
             resultado=false;
+        }else{
+            if (etiquetas[1].compareTo("<html>")==0){
+                do {
+                    i++;
+
+                    if(lista.esEtiqueta(etiquetas[i])){
+                        if (lista.esApertura(etiquetas[i])){
+                            etiquetasApertura.apilar(etiquetas[i]);
+                        }else{
+                            String elemento=etiquetasApertura.desapilar();
+                            if (etiquetas[i].replace("/","").compareTo(elemento)!=0){
+                                resultado=false;
+                            }
+                        }
+                    }
+                }while (etiquetas[i].compareTo("</html>")!=0);
+            }else
+                resultado=false;
+            if(!etiquetasApertura.vacia()){
+                System.out.println("En la pila quedan elementos:");
+                utilizacionPila.mostrarInverso(etiquetasApertura);
+                resultado=false;
+            }
         }
+
         return  resultado;
     }
 
@@ -59,7 +61,7 @@ public class UtilizacionPila {
      */
     public void mostrarInverso(Pila pila){
         if(!pila.vacia()){
-            int elemento=pila.desapilar();
+            String elemento=pila.desapilar();
             mostrarInverso(pila);
             System.out.println(elemento + " ");
             pila.apilar(elemento);

@@ -16,7 +16,39 @@ public class UtilizacionStack {
      * @return verdadero si las etiquetas están balanceadas, falso en caso contrario
      */
     public boolean comprobarLineaStack (ListaEtiquetas lista, String texto) {
-        return false;
+        boolean resultado=true;
+        Stack<String> etiquetasApertura=new Stack<>();
+        int i =0;
+        String[]etiquetas=texto.split(" ");
+        UtilizacionStack utilizacionStack=new UtilizacionStack();
+        if (texto.length()==0){
+            resultado=false;
+        }else{
+            if (etiquetas[1].compareTo("<html>")==0){
+                do {
+                    i++;
+
+                    if(lista.esEtiqueta(etiquetas[i])){
+                        if (lista.esApertura(etiquetas[i])){
+                            etiquetasApertura.push(etiquetas[i]);
+                        }else{
+                            String elemento=etiquetasApertura.pop();
+                            if (etiquetas[i].replace("/","").compareTo(elemento)!=0){
+                                resultado=false;
+                            }
+                        }
+                    }
+                }while (etiquetas[i].compareTo("</html>")!=0);
+            }else
+                resultado=false;
+            if(!etiquetasApertura.empty()){
+                System.out.println("En la pila quedan elementos:");
+                utilizacionStack.mostrarInverso(etiquetasApertura);
+                resultado=false;
+            }
+        }
+
+        return  resultado;
     }
     /**
      * Método que muestra el contenido de la pila

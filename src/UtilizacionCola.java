@@ -16,7 +16,12 @@ public class UtilizacionCola {
      * @return la cola que contiene las etiquetas de la lista contenidas en el texto
      */
     public Cola leerTexto(ListaEtiquetas lista, String texto) {
-        return new Cola();
+        Cola resultado=new Cola();
+        int i =0;
+        String[]etiquetas=texto.split(" ");
+
+
+        return resultado;
     }
 
     /**

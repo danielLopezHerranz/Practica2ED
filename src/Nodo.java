@@ -1,7 +1,7 @@
 /**
  * Clase Nodo, define el nodo de la Pila y la Cola
  *
- * @author Pilar Martínez García
+ * @author Daniel López Herranz
  * @version 1.0
  *
  * Modificar para que el nodo contenga como datos Strings en vez de int
@@ -10,7 +10,7 @@ public class Nodo{
     /**
      * dato que contiene el nodo de la pila o cola
      */
-    private int dato;
+    private String dato;
     /**
      * referencia al siguiente elemento de la lista
      */
@@ -22,7 +22,7 @@ public class Nodo{
      * @param dato contenido del nodo
      * @param siguiente referencia al siguiente elemento de la lista
      */
-    public Nodo(int dato, Nodo siguiente) {
+    public Nodo(String dato, Nodo siguiente) {
         this.dato = dato;
         this.siguiente = siguiente;
     }
@@ -47,7 +47,7 @@ public class Nodo{
      * devuelve el dato contenido en el nodo
      * @return dato
      */
-    public int getDato() {
+    public String getDato() {
         return dato;
     }
 
@@ -55,7 +55,7 @@ public class Nodo{
      * modifica el dato contenido en el nodo con el valor que se recibe como argumento
      * @param dato nuevo dato que se almacenará en el nodo
      */
-    public void setDato(int dato) {
+    public void setDato(String dato) {
         this.dato = dato;
     }
 }
