@@ -33,6 +33,35 @@ public class UtilizacionCola {
      * @return verdadero si las etiquetas están balanceadas, falso en caso contrario
      */
     public boolean comprobarHtml(Cola cola, ListaEtiquetas lista) {
-        return false;
+        boolean res=true;
+        Pila pila = new Pila();
+        String elemento;
+
+        for (int i=0;i<cola.getNumElementos();i++)
+        {
+
+            elemento = cola.desencolar();
+            if (lista.esApertura(elemento))
+            {
+                pila.apilar(elemento);
+            }
+            else
+            {
+
+                String cima = pila.desapilar();
+                if (!lista.emparejados(cima,elemento))
+                {
+                    res=false;
+                }
+            }
+            cola.encolar(elemento);
+        }
+        if (!pila.vacia())
+        {
+            System.out.println("En la pila quedan elementos:");
+            pila.mostrar();
+            res=false;
+        }
+        return res;
     }
 }
