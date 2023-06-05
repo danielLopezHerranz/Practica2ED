@@ -2,7 +2,7 @@
  * Clase UtilizacionCola, para desarrollar los ejercicios propuestos en el
  * apartado 4
  *
- * @author
+ * @author Daniel López Herranz
  */
 public class UtilizacionCola {
 

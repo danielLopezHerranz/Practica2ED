@@ -2,7 +2,7 @@ import java.util.Stack;
 
 /**
  * Clase UtilizacionStack, para desarrollar los ejercicios propuestos en el apartado 3
- * @author
+ * @author Daniel López Herranz
  * @version
  */
 public class UtilizacionStack {

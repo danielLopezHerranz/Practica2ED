@@ -5,7 +5,7 @@ import java.util.Stack;
  * Clase UtilizacionPila, para desarrollar los ejercicios propuestos en el
  * apartado 2
  *
- * @author
+ * @author Daniel López Herranz
  * @version
  */
 public class UtilizacionPila {
@@ -20,39 +20,36 @@ public class UtilizacionPila {
      * @return verdadero si las etiquetas están balanceadas, falso en caso contrario
      */
     public boolean comprobarTexto (ListaEtiquetas lista, String texto) {
-        boolean resultado=true;
-        Pila etiquetasApertura=new Pila();
-        int i =0;
-        String[]etiquetas=texto.split(" ");
-        UtilizacionPila utilizacionPila=new UtilizacionPila();
-        if (texto.length()==0){
-            resultado=false;
-        }else{
-            if (etiquetas[1].compareTo("<html>")==0){
-                do {
-                    i++;
+        boolean res=true;
+        String[] aux = texto.split(" ");
+        Pila pila = new Pila();
+        int i=0;
+        while(i<aux.length && res)
+        {
+            if (lista.esApertura(aux[i]))
+            {
 
-                    if(lista.esEtiqueta(etiquetas[i])){
-                        if (lista.esApertura(etiquetas[i])){
-                            etiquetasApertura.apilar(etiquetas[i]);
-                        }else{
-                            String elemento=etiquetasApertura.desapilar();
-                            if (etiquetas[i].replace("/","").compareTo(elemento)!=0){
-                                resultado=false;
-                            }
-                        }
-                    }
-                }while (etiquetas[i].compareTo("</html>")!=0);
-            }else
-                resultado=false;
-            if(!etiquetasApertura.vacia()){
-                System.out.println("En la pila quedan elementos:");
-                utilizacionPila.mostrarInverso(etiquetasApertura);
-                resultado=false;
+                pila.apilar(aux[i]);
             }
+            else if (lista.esCierre(aux[i]))
+            {
+                String sAux = pila.desapilar();
+                if (!lista.emparejados(sAux,aux[i]))
+                {
+                    res=false;
+                }
+            }
+            i++;
         }
 
-        return  resultado;
+        if (!pila.vacia())
+        {
+            System.out.println("En la pila quedan elementos:");
+            mostrarInverso(pila);
+            res=false;
+        }
+
+        return res;
     }
 
     /**

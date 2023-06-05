@@ -1,7 +1,7 @@
 /**
  * Clase Nodo, define el nodo de la Pila y la Cola
  *
- * @author Daniel López Herranz
+ * @author Pilar Martinez Garcia
  * @version 1.0
  *
  * Modificar para que el nodo contenga como datos Strings en vez de int
